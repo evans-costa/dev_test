@@ -12,6 +12,9 @@ export class Post {
   @Column({ type: "varchar", length: 100 })
   description: string
 
-  @ManyToOne(() => User, (user) => user.posts)
+  @ManyToOne(() => User, (user) => user.posts, { nullable: false })
   user: User
+
+  @Column()
+  userId: number
 }
